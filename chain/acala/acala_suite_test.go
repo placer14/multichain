@@ -1,4 +1,4 @@
-package substratecompat_test
+package acala_test
 
 import (
 	"testing"
@@ -7,7 +7,7 @@ import (
 	. "github.com/onsi/gomega"
 )
 
-func TestSubstratecompat(t *testing.T) {
+func TestAcala(t *testing.T) {
 	RegisterFailHandler(Fail)
-	RunSpecs(t, "Substratecompat Suite")
+	RunSpecs(t, "Acala Suite")
 }

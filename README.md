@@ -6,7 +6,7 @@
 
 `/compat` contains all of the Compat APIs. These APIs are the interfaces required to be implemented by underlying chains that are similar to each other. For example, the `/compat/bitcoincompat` folder defines the Bitcoin Compat API. The `Address`, `Client`, `Tx`, and `TxBuilder` interfaces must be implemented by all underlying chains that want to be compatible with the Bitcoin runtime. It also defines implementations that are likely to be common to these underlying chains (although, each underlying chain can override whatever it needs to).
 
-`/chain`  contains all the implementations of the Compat APIs. Each chain has its own sub-package. For example, Bitcoin, Bitcoin Cash, Dogecoin, and Zcash are all underyling chains that implement the Bitcoin Compat API (defined in `/compat/bitcoincompat`), and each of these implementations are in `/chain/bitcoin`, `/chain/bitcoincash`, `/chain/dogecoin`, and `/chain/zcash` respectively.
+`/chain`  contains all the implementations of the Compat APIs. Each chain has its own sub-package. For example, Bitcoin, Bitcoin Cash, Dogecoin, and Zcash are all underlying chains that implement the Bitcoin Compat API (defined in `/compat/bitcoincompat`), and each of these implementations are in `/chain/bitcoin`, `/chain/bitcoincash`, `/chain/dogecoin`, and `/chain/zcash` respectively.
 
 `/docker` defines a local deployment of the multichain using `docker-compose`. All underlying chains provide a `Dockerfile` and service definition to make running node instances easy.
 
@@ -18,7 +18,7 @@ The `🔗 multichain` is designed to be flexible enough to support any kind of c
 
 ### Chains and Assets
 
-Before doing anything else, let's add an enumeration for the `Asset` and `Chain` types, which can be found in `package multichain`. To avoid favouritism, all assets and chains are listed in alphabetical order. Unless otherwise advised by an offiical team member, the names and tickers found on https://coinmarketcap.com must be used.
+Before doing anything else, let's add an enumeration for the `Asset` and `Chain` types, which can be found in `package multichain`. To avoid favoritism, all assets and chains are listed in alphabetical order. Unless otherwise advised by an official team member, the names and tickers found on https://coinmarketcap.com must be used.
 
 Adding an `Asset`:
 
@@ -109,7 +109,7 @@ The final thing that is required before the `🔗 multichain` supports our new c
 
 The Compat API is defined by `package compat` (and is used by the `Runtime` type in `package runtime`). All of the interfaces in `package bitcoincompat` belong to the Bitcoin Compat API, all of the interfaces in `package ethereumcompat` belong to the Ethereum Compat API, all of the interfaces in `package substratecompat` belong to the Substrate Compat API, and so on. Similarly, the `BitcoinXX`, `EthereumXXX`, and `SubstrateXXX` methods (defined by the `Runtime` type in `package runtime`) are all abstractions over the respective Compat APIs, but do not need to be modified!
 
-Dogecoin is a fork of Bitcoin, so it is natural that we will support it by implementing the Bitcoin Compat API. Dogecoin is, in fact, so similar to Bitcoin that the implementation is trivial. All implementations belond in `package chain`, so we will create a new `package dogecoin` in that directory. Here, we create the `dogecoin.go` file and fill it with:
+Dogecoin is a fork of Bitcoin, so it is natural that we will support it by implementing the Bitcoin Compat API. Dogecoin is, in fact, so similar to Bitcoin that the implementation is trivial. All implementations belong in `package chain`, so we will create a new `package dogecoin` in that directory. Here, we create the `dogecoin.go` file and fill it with:
 
 ```go
 package dogecoin

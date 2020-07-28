@@ -1,5 +1,20 @@
 version: "2"
 services:
+
+  ##
+  ## Acala
+  ##
+
+  acala:
+    build:
+      context: ./acala
+    ports:
+      - '0.0.0.0:9933:9933'
+      - '0.0.0.0:9944:9944'
+    entrypoint:
+      - "/root/run.sh"
+      - "${ACALA_ADDRESS}"
+
   # ##
   # ## Bitcoin
   # ##
@@ -30,14 +45,14 @@ services:
   ## Dogecoin
   ##
 
-  dogecoin:
-    build:
-      context: ./dogecoin
-    ports:
-      - "0.0.0.0:18332:18332"
-    entrypoint:
-      - "./root/run.sh"
-      - "${DOGECOIN_ADDRESS}"
+  # dogecoin:
+  #   build:
+  #     context: ./dogecoin
+  #   ports:
+  #     - "0.0.0.0:18332:18332"
+  #   entrypoint:
+  #     - "./root/run.sh"
+  #     - "${DOGECOIN_ADDRESS}"
   # ##
   # ## Zcash
   # ##
